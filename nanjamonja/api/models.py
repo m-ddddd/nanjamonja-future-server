@@ -12,6 +12,6 @@ class Character(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
-class Parts(models.Model):
-    content = models.BinaryField(max_length=None)
-    parts_type = models.IntegerField()
+# class Parts(models.Model):
+#     content = models.BinaryField(max_length=None)
+#     parts_type = models.IntegerField()
