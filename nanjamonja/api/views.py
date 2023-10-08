@@ -22,13 +22,13 @@ def user_get(request):
     datas = []
     for row in users:
         char = Character.objects.filter(user=row.id)
-        data = [
-            {'user_name': row.user_name},
-            {'content': char[0].content},
-            {'highest_score': row.highest_score},
-            {'participant_count': row.participant_count},
-            {'default_flg': row.default_flg},
-        ]
+        data = {
+            'user_name': row.user_name,
+            'content': char[0].content,
+            'highest_score': row.highest_score,
+            'participant_count': row.participant_count,
+            'default_flg': row.default_flg
+        }
         datas.append(data)
 
     return Response(datas)

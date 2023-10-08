@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,7 +72,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'nanjamonja.wsgi.application'
-
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:5173',
+    'http://localhost:5173',
+    'https://5b5qp22q-5173.asse.devtunnels.ms'
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
